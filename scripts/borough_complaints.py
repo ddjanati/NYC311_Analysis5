@@ -35,19 +35,21 @@ def main():
         #indices
         ci = headers.index("Complaint Type")
         bi = headers.index("Borough")
-        di = headers.index("Created Date")
+        di = headers.index("Closed Date")
 
         for row in reader:
             try:
                 c_type = row[ci]
                 brgh = row[bi]
-                date = row[di]
+                date = row[di].split()[0]
             except IndexError:
                 continue   
 
-            month, day, year = date.split()[0].split("/")
+            month, day, year = date.split("/")
             month = int(month)
             day = int(day)
+            if not date:
+                continue
 
             if (mon_s, day_s) <= (month, day) <= (mon_e, day_e):
                 key = (c_type, brgh)
@@ -57,7 +59,7 @@ def main():
                     counts[key] = 1
 
     print("complaint type, borough, count", file=out)
-    
+
     for key, count in counts.items():
         complaint = key[0]
         borough = key[1]
