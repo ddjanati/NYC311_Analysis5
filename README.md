@@ -1,1 +1,1 @@
-New York City wants to evaluate the deployment of services following a 311 call, depending on borough and neighborhood (measuring with zipcodes).
+New York City wants to evaluate the deployment of services following 311 calls, depending on borough and neighborhood (measured with zipcodes).
