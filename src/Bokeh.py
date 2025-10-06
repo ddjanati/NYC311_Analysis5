@@ -41,6 +41,9 @@ def get_data():
 
 data_311, zipcodes, all_avgs = get_data()
 
+Z1 = data_311[zipcodes[0]]
+Z2 = data_311[zipcodes[1]]  
+
 # figure with 3 lines 
 
 max_y = max(max(v) for v in data_311.values())
